@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Mars_Hafiz"
+rootProject.name = "Oreo_Hafiz"
 include(":app")

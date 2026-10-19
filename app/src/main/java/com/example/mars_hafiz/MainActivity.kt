@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
-        // 1. Aksi Butang Log Out
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Konfirmasi Logout")
@@ -45,22 +44,21 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-        // 2. Aksi Butang Katalog (btnToFourth)
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
-            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("name", "Politeknik Caltex Rumbai")
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
             startActivity(intent)
         }
 
-        // 3. Aksi Butang Pesanan (btnToFifth)
         binding.btnToFifth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
             startActivity(intent)
         }
 
-        // 4. Aksi Menu BottomNavigation
+        binding.bottomNavigation.selectedItemId = R.id.navigation_home
+
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
@@ -73,7 +71,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_profile -> {
-                    Toast.makeText(this, "Halaman Profile", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false

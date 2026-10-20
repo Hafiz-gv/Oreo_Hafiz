@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AlertDialog.Builder
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -39,6 +38,14 @@ class AuthActivity : AppCompatActivity() {
             return
         }
 
+        // Event listener saat tombol Register diklik (Menuju Halaman Registrasi)
+        // Catatan: Jika di layout kamu id tombol/teks registrasinya berlainan (misal: btnRegister / tvRegister),
+        // kamu bisa sesuaikan id 'btnRegister' di bawah ini.
+        binding.btnRegister?.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
         // Event listener saat tombol Login diklik
         binding.btnLogin.setOnClickListener {
             val username = binding.etUsername.text.toString().trim()
@@ -46,7 +53,7 @@ class AuthActivity : AppCompatActivity() {
 
             // Validasi: Input tidak boleh kosong
             if (username.isEmpty() || password.isEmpty()) {
-                Builder(this)
+                AlertDialog.Builder(this)
                     .setTitle("Peringatan")
                     .setMessage("Username dan Password tidak boleh kosong")
                     .setPositiveButton("OK", null)
@@ -54,8 +61,19 @@ class AuthActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Jika Username == Password, berpindah ke MainActivity
-            if (username == password) {
+            // Ambil data user dari SharedPreferences (data hasil registrasi)
+            val regUsername = sharedPref.getString("registered_username", null)
+            val regPassword = sharedPref.getString("registered_password", null)
+
+            // Aturan Login Soal 2 UTS:
+            // Rule 1: Username sama dengan Password
+            val isRule1Valid = username == password
+
+            // Rule 2: Username & Password sama dengan data tersimpan di SharedPreferences
+            val isRule2Valid = regUsername != null && regPassword != null &&
+                    username == regUsername && password == regPassword
+
+            if (isRule1Valid || isRule2Valid) {
                 // Simpan status login di SharedPreferences
                 sharedPref.edit().putBoolean("isLogin", true).apply()
 
@@ -63,10 +81,10 @@ class AuthActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                // Jika tidak sama, tampilkan AlertDialog[cite: 1]
+                // Jika tidak memenuhi kedua rule, tampilkan AlertDialog
                 AlertDialog.Builder(this)
                     .setTitle("Gagal Login")
-                    .setMessage("Silahkan coba lagi")
+                    .setMessage("Username atau Password salah!")
                     .setPositiveButton("OK", null)
                     .show()
             }

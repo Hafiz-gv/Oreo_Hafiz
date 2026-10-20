@@ -9,7 +9,6 @@
     android:padding="16dp"
     tools:context=".pertemuan4.FourthActivity">
 
-    <!-- Judul Halaman -->
     <TextView
         android:id="@+id/tvTitlePesanan"
         android:layout_width="wrap_content"
@@ -23,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ScrollView untuk Menampung Semua Menu -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
@@ -40,7 +38,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Menu 1: Kopi Gadoca -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,7 +90,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Menu 2: Roti Bakar -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -146,7 +142,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Menu 3: Matcha Latte -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -199,7 +194,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Menu 4: Americano Ice -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,7 +246,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Menu 5: Croissant Cokelat -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -305,7 +298,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Menu 6: Boba Milk Tea -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -358,7 +350,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Menu 7: French Fries -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -414,7 +405,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Tombol Kembali -->
     <Button
         android:id="@+id/btnKembali"
         android:layout_width="0dp"

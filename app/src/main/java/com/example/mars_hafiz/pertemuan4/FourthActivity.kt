@@ -1,7 +1,10 @@
 package com.example.mars_hafiz.pertemuan4
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -34,7 +37,7 @@ class FourthActivity : AppCompatActivity() {
             finish()
         }
 
-        // Notifikasi Toast untuk Setiap Tombol Pesan Menu
+        // Toast Notifikasi Pesanan
         binding.btnPesan1.setOnClickListener {
             Toast.makeText(this, "Kopi Gadoca telah ditambahkan ke pesanan!", Toast.LENGTH_SHORT).show()
         }
@@ -63,11 +66,39 @@ class FourthActivity : AppCompatActivity() {
             Toast.makeText(this, "French Fries telah ditambahkan ke pesanan!", Toast.LENGTH_SHORT).show()
         }
 
-        // Menerima Data Intent
         val name = intent.getStringExtra("name")
         val from = intent.getStringExtra("from")
         val age = intent.getIntExtra("age", 0)
         Log.e("Data Intent", "Nama: $name, Usia: $age, Asal: $from")
+
+        // 🎯 FITUR PENCARIAN MENU REAL-TIME
+        val menuList = listOf(
+            Pair(binding.cardItem1, binding.tvMenu1.text.toString()),
+            Pair(binding.cardItem2, binding.tvMenu2.text.toString()),
+            Pair(binding.cardItem3, binding.tvMenu3.text.toString()),
+            Pair(binding.cardItem4, binding.tvMenu4.text.toString()),
+            Pair(binding.cardItem5, binding.tvMenu5.text.toString()),
+            Pair(binding.cardItem6, binding.tvMenu6.text.toString()),
+            Pair(binding.cardItem7, binding.tvMenu7.text.toString())
+        )
+
+        binding.etSearchMenu.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val query = s.toString().lowercase().trim()
+
+                for ((cardView, menuName) in menuList) {
+                    if (menuName.lowercase().contains(query)) {
+                        cardView.visibility = View.VISIBLE
+                    } else {
+                        cardView.visibility = View.GONE
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     override fun onStart() {

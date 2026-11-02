@@ -13,11 +13,13 @@ import com.example.mars_hafiz.databinding.ActivityMainBinding
 import com.example.mars_hafiz.pertemuan4.FourthActivity
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.e("onCreate", "{MainActivity} dibuat pertama kali")
+
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
+        // Tombol Logout dengan AlertDialog
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Konfirmasi Logout")
@@ -44,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
+        // Tombol Menuju Katalog (FourthActivity) dengan Intent Extra
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Rumbai")
@@ -52,13 +56,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Tombol Menuju Pesanan Saya
         binding.btnToFifth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
             startActivity(intent)
         }
 
+        // Bottom Navigation Bar
         binding.bottomNavigation.selectedItemId = R.id.navigation_home
-
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {

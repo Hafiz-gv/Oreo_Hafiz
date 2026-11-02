@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF8F5"
+    android:background="?attr/colorSurface"
     tools:context=".ProfileActivity">
 
     <ScrollView
@@ -29,16 +29,39 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.08"
                 android:text="PROFILE GADOCA"
-                android:textColor="#3E2723"
-                android:textSize="18sp"
-                android:letterSpacing="0.08" />
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Mode Gelap (Dark Mode)"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchDarkMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#E4E1E1"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="2dp">
 
@@ -52,7 +75,7 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="96dp"
                         android:layout_height="96dp"
-                        app:cardBackgroundColor="#EFEBE9"
+                        app:cardBackgroundColor="?attr/colorSurfaceContainer"
                         app:cardCornerRadius="48dp"
                         app:cardElevation="0dp">
 
@@ -68,7 +91,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="GADOCA"
-                        android:textColor="#3E2723"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -77,25 +100,23 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="hafiz@caltex.ac.id"
-                        android:textColor="#000000"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="14sp" />
 
-                    <!-- Tagline/Status Pelanggan Kafe -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:background="#D7CCC8"
+                        android:background="?attr/colorSurfaceContainer"
                         android:paddingHorizontal="16dp"
                         android:paddingVertical="6dp"
                         android:text="☕ Coffee Lover / Reguler Member"
-                        android:textColor="#3E2723"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card Poin & Voucher Belanja -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="#EDE8E8"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="2dp">
 
@@ -123,7 +144,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="12"
-                            android:textColor="#000000"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -132,7 +153,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="Cangkir Dipesan"
-                            android:textColor="#000000"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -142,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="#EFEBEB"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="2dp">
 
@@ -157,7 +178,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3 Voucher"
-                            android:textColor="#000000"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -166,18 +187,17 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="Diskon Gadocaa"
-                            android:textColor="#020202"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-            <!-- Card Informasi Alamat & Kampus -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#FFFFFF"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="2dp">
 
@@ -192,11 +212,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:text="Info Pengiriman &amp; Kampus"
-                        android:textColor="#3E2723"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
-                    <!-- Item 1 -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -207,14 +226,14 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@android:drawable/ic_menu_myplaces"
-                            app:tint="#5D4037" />
+                            app:tint="?attr/colorOnSurfaceVariant" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:text="Politeknik Caltex Riau"
-                            android:textColor="#4E342E"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -222,9 +241,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginVertical="12dp"
-                        android:background="#EFEBE9" />
+                        android:background="?attr/colorOutlineVariant" />
 
-                    <!-- Item 2 -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -235,14 +253,14 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@android:drawable/ic_menu_compass"
-                            app:tint="#5D4037" />
+                            app:tint="?attr/colorOnSurfaceVariant" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:text="Rumbai, Pekanbaru"
-                            android:textColor="#4E342E"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -250,9 +268,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginVertical="12dp"
-                        android:background="#EFEBE9" />
+                        android:background="?attr/colorOutlineVariant" />
 
-                    <!-- Item 3 -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -263,14 +280,14 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@android:drawable/ic_menu_agenda"
-                            app:tint="#5D4037" />
+                            app:tint="?attr/colorOnSurfaceVariant" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:text="Tugas Pemrograman Mobile"
-                            android:textColor="#4E342E"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -280,12 +297,11 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation Bar Warm -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="?attr/colorSurface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
